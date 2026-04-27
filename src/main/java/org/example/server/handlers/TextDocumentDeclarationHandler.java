@@ -3,7 +3,6 @@ package org.example.server.handlers;
 import org.example.communication.DTO.Location;
 import org.example.communication.LSPAny;
 import org.example.communication.requests.DeclarationParams;
-import org.example.communication.responses.NullResult;
 import org.example.project.FunctionDeclaration;
 import org.example.project.FileNode;
 import org.example.project.ProjectContext;
@@ -38,18 +37,18 @@ public class TextDocumentDeclarationHandler extends LSPHandler<DeclarationParams
         if (node instanceof CallNode callNode) {
             FunctionDeclaration decl = node.scope.localFunctionDeclarations.getFunctionDeclaration(callNode.name);
             if (decl == null || decl.range == null) {
-                throw new RuntimeException("Declaration not found for procedure: " + callNode.name);
+                return null;
             }
             return new Location(params.textDocument.uri, decl.range);
         }
 
         if (node instanceof VariableRefNode varRef) {
             if(!node.scope.declaredVariables.containsKey(varRef.name))
-                return new NullResult();
+                return null;
             UserVariableDeclaration declaration = node.scope.declaredVariables.get(varRef.name);
             return new Location(params.textDocument.uri, declaration.range);
         }
 
-        throw new RuntimeException("Node is not a procedure call or variable reference");
+        return null;
     }
 }
