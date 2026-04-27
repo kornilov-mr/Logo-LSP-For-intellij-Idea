@@ -1,0 +1,4 @@
+ProgramNode{statements=[
+Declare(testVar, 10), 
+Call(print, [Var(testVar)]), 
+Call(print, [Var(testVar2)])], parserErrors=[], staticErrors=[Error(Undefined variable: testVar2)]}

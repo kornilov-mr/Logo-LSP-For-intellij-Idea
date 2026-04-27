@@ -1,0 +1,5 @@
+ProgramNode{statements=[
+Declare(x, 100), 
+Declare(y, 50), 
+Call(forward, [Var(x)]), 
+Call(right, [Var(y)])], parserErrors=[], staticErrors=[]}

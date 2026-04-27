@@ -1,0 +1,6 @@
+make "testVar 10
+print square 5
+to square :x
+  make "funResult product :x :x
+  output :funResult
+end

@@ -1,0 +1,4 @@
+ProgramNode{statements=[Error(Expected '['), 
+Repeat(4, Block[]), 
+Call(forward, [100]), 
+Call(right, [90])], parserErrors=[Error(Expected '['), Error(no viable alternative at input '[forward100right90')], staticErrors=[]}

@@ -1,0 +1,7 @@
+﻿repeat 4 [
+    repeat 3 [
+        forward 20
+        right 30
+    ]
+    right 90
+]

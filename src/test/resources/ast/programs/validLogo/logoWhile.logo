@@ -1,0 +1,6 @@
+make "count 4
+while :count [
+    forward 50
+    right 90
+    make "count difference :count 1
+]

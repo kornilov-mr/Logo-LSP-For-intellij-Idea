@@ -1,0 +1,5 @@
+ProgramNode{statements=[
+Procedure(square, [Param(size)], Block[
+Call(forward, [Var(size)]), 
+Call(right, [90])]), 
+Call(square, [100])], parserErrors=[], staticErrors=[]}

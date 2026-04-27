@@ -1,0 +1,8 @@
+﻿make "a 1
+make "b 0
+ifelse :a [
+    forward 100
+] [
+    back 50
+    left 90
+]

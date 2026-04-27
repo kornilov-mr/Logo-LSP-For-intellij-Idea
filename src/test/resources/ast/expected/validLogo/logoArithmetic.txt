@@ -1,0 +1,6 @@
+ProgramNode{statements=[
+Call(sum, [10, 20]), 
+Call(difference, [100, 50]), 
+Call(product, [3, 7]), 
+Call(quotient, [20, 4]), 
+Call(remainder, [10, 3])], parserErrors=[], staticErrors=[]}

@@ -1,0 +1,7 @@
+﻿forward sqrt 100
+forward abs difference 5 10
+forward round sin 45
+forward round cos 0
+forward power 2 8
+make "r random 100
+forward :r

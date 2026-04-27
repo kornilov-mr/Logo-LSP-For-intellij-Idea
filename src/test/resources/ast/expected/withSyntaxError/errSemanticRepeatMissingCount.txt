@@ -1,0 +1,4 @@
+ProgramNode{statements=[Error(Expected repeat count before '['), 
+Repeat(Error(Missing count), Block[
+Call(forward, [100]), 
+Call(right, [90])])], parserErrors=[Error(Expected repeat count before '[')], staticErrors=[]}

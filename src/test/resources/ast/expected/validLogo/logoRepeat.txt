@@ -1,0 +1,4 @@
+ProgramNode{statements=[
+Repeat(4, Block[
+Call(forward, [100]), 
+Call(right, [90])])], parserErrors=[], staticErrors=[]}

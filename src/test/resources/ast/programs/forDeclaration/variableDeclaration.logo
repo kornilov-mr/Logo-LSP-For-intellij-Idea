@@ -1,0 +1,12 @@
+make "a 1
+make "b 1
+make "c 0
+if and :a :b [
+    forward 100
+]
+if or :a :c [
+    right 90
+]
+if not :c [
+    back 50
+]

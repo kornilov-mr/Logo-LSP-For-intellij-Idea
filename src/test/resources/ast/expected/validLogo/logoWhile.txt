@@ -1,0 +1,7 @@
+ProgramNode{statements=[
+Declare(count, 4), 
+While(Var(count), Block[
+Call(forward, [50]), 
+Call(right, [90]), 
+Declare(count, 
+Call(difference, [Var(count), 1]))])], parserErrors=[], staticErrors=[]}

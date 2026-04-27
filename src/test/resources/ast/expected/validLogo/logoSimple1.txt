@@ -1,0 +1,13 @@
+ProgramNode{statements=[
+Declare(size, 100), 
+Declare(step, 50), 
+Call(forward, [Var(size)]), 
+Call(right, [90]), 
+Call(forward, [Var(step)]), 
+Call(right, [90]), 
+Call(forward, [Var(size)]), 
+Call(right, [90]), 
+Call(forward, [Var(step)]), 
+Call(right, [90]), 
+Call(print, [Var(size)]), 
+Call(print, [Var(step)])], parserErrors=[], staticErrors=[]}

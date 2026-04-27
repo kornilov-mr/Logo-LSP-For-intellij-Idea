@@ -1,0 +1,15 @@
+﻿to drawSquare :size
+    repeat 4 [
+        forward :size
+        right 90
+    ]
+end
+
+to shrinkingSquares :size
+    drawSquare :size
+    if :size [
+        shrinkingSquares difference :size 10
+    ]
+end
+
+shrinkingSquares 50

@@ -1,0 +1,4 @@
+ProgramNode{statements=[
+Declare(x, 10), Error(Expected '['), 
+While(Var(greaterp), Block[]), Var(x), 0, 
+Call(forward, [Var(x)])], parserErrors=[Error(Expected '[')], staticErrors=[Error(Undefined function: greaterp)]}

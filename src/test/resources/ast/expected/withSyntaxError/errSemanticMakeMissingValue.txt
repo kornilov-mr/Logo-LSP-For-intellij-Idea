@@ -1,0 +1,2 @@
+ProgramNode{statements=[Error(Expected value after variable name in 'make'), 
+Call(forward, [10])], parserErrors=[Error(Expected value after variable name in 'make')], staticErrors=[]}

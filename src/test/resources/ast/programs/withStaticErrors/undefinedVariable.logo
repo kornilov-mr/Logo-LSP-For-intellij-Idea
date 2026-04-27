@@ -1,0 +1,3 @@
+make "testVar 10
+print :testVar
+print :testVar2

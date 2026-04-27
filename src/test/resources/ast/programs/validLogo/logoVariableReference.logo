@@ -1,0 +1,3 @@
+MAKE "A 10
+MAKE "B 20
+PRINT :A + :B

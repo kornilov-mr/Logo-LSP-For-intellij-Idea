@@ -1,0 +1,5 @@
+ProgramNode{statements=[
+Declare(x, 5), 
+If(Var(x), Block[
+Call(forward, [100]), 
+Call(right, [90])])], parserErrors=[Error(token recognition error at: '﻿')], staticErrors=[]}

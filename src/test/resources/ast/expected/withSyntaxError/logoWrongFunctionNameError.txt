@@ -1,0 +1,4 @@
+ProgramNode{statements=[Var(sam), 10, 20, 
+Call(difference, [100, 50]), 
+Call(product, [3, 7]), 
+Call(quotient, [20, 4]), Var(reminder), 10, 3], parserErrors=[], staticErrors=[Error(Undefined function: sam), Error(Undefined function: reminder)]}

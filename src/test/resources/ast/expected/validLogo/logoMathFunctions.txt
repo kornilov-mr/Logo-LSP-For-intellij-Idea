@@ -1,0 +1,17 @@
+ProgramNode{statements=[
+Call(forward, [
+Call(sqrt, [100])]), 
+Call(forward, [
+Call(abs, [
+Call(difference, [5, 10])])]), 
+Call(forward, [
+Call(round, [
+Call(sin, [45])])]), 
+Call(forward, [
+Call(round, [
+Call(cos, [0])])]), 
+Call(forward, [
+Call(power, [2, 8])]), 
+Declare(r, 
+Call(random, [100])), 
+Call(forward, [Var(r)])], parserErrors=[Error(token recognition error at: '﻿')], staticErrors=[]}

@@ -1,0 +1,4 @@
+to square :x
+  output product :x :x
+end
+print square 5

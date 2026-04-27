@@ -1,0 +1,4 @@
+ProgramNode{statements=[
+Declare(x, 100), Error(" expected before variable name), Var(y), 50, 
+Call(forward, [Var(x)]), 
+Call(right, [Var(y)])], parserErrors=[Error(" expected before variable name), Error(token recognition error at: '﻿')], staticErrors=[Error(Undefined variable: y), Error(Undefined variable: y)]}

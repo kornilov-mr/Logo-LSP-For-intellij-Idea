@@ -1,0 +1,7 @@
+ProgramNode{statements=[
+Declare(testVar, 10), 
+Call(print, [Var(square)]), 5, 
+Procedure(square, [Param(x)], Block[
+Declare(funResult, 
+Call(product, [Var(x), Var(x)])), 
+Call(output, [Var(funResult)])])], parserErrors=[], staticErrors=[Error(Undefined function: square)]}

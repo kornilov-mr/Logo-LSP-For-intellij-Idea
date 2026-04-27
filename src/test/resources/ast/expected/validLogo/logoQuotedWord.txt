@@ -1,0 +1,5 @@
+ProgramNode{statements=[
+Call(print, [Word(hello)]), 
+Declare(label, Word(world)), 
+Call(show, [Word(done)]), 
+Call(type, [Word(test)])], parserErrors=[Error(token recognition error at: '﻿')], staticErrors=[]}

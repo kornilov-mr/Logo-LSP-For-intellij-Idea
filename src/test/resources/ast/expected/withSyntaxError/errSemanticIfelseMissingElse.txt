@@ -1,0 +1,5 @@
+ProgramNode{statements=[
+Declare(x, 5), Error(Expected '['), Error(Expected '['), 
+IfElse(Var(equalp), Block[], Block[]), Var(x), 5, Block[
+Call(forward, [10])], 
+Call(right, [90])], parserErrors=[Error(Expected '['), Error(Expected '[')], staticErrors=[Error(Undefined function: equalp)]}

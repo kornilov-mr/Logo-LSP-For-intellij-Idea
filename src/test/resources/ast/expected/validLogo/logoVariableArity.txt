@@ -1,0 +1,3 @@
+ProgramNode{statements=[
+Call(sentence, [1, 2, 3]), 
+Call(sentence, [10, 20, 30])], parserErrors=[], staticErrors=[]}

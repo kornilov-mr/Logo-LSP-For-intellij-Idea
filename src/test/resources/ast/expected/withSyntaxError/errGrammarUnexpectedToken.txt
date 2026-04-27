@@ -1,0 +1,4 @@
+ProgramNode{statements=[
+Call(forward, [100]), Var(unknown), 
+Call(right, [90]), 
+Call(forward, [50])], parserErrors=[], staticErrors=[Error(Undefined variable: unknown)]}

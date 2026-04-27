@@ -1,0 +1,5 @@
+﻿make "x 5
+if :x [
+    forward 100
+    right 90
+]

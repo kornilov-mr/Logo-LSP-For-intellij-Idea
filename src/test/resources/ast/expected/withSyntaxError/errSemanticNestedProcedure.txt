@@ -1,0 +1,5 @@
+ProgramNode{statements=[
+Procedure(outer, [], Block[Error(Nested procedure definitions are not allowed), 
+Procedure(inner, [], Block[
+Call(forward, [10])]), 
+Call(forward, [20])])], parserErrors=[Error(Nested procedure definitions are not allowed)], staticErrors=[]}

@@ -1,0 +1,4 @@
+ProgramNode{statements=[
+Call(forward, [Error(Missing argument 1 for 'forward')]), 
+Call(right, [Error(Missing argument 1 for 'right')]), 
+Call(sum, [5, Error(Missing argument 2 for 'sum')])], parserErrors=[Error(Missing argument 1 for 'forward'), Error(Missing argument 1 for 'right'), Error(Missing argument 2 for 'sum')], staticErrors=[]}

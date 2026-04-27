@@ -1,0 +1,17 @@
+make "size 100
+make "step 50
+
+forward :size
+right 90
+
+forward :step
+right 90
+
+forward :size
+right 90
+
+forward :step
+right 90
+
+print :size
+print :step

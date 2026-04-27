@@ -1,0 +1,2 @@
+to square :x
+  output product :x :x

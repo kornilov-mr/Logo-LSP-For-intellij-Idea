@@ -1,0 +1,3 @@
+make "x 5
+if equalp :x 5
+forward 10

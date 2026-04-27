@@ -1,0 +1,4 @@
+ProgramNode{statements=[
+Declare(A, 10), 
+Declare(B, 20), 
+Call(PRINT, [BinaryExpr(Var(A), +, Var(B))])], parserErrors=[], staticErrors=[]}

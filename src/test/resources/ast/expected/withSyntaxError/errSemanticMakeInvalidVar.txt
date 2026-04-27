@@ -1,0 +1,2 @@
+ProgramNode{statements=[Error(Expected variable name ("name or :name) after 'make', got '42'), 
+Declare(x, 5)], parserErrors=[Error(Expected variable name ("name or :name) after 'make', got '42')], staticErrors=[]}

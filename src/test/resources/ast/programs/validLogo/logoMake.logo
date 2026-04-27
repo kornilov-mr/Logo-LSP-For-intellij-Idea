@@ -1,0 +1,4 @@
+make "x 100
+make "y 50
+forward :x
+right :y

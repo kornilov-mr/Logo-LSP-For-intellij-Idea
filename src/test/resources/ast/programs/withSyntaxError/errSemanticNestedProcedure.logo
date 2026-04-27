@@ -1,0 +1,6 @@
+to outer
+  to inner
+    forward 10
+  end
+  forward 20
+end

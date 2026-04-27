@@ -1,0 +1,11 @@
+ProgramNode{statements=[
+Procedure(drawSquare, [Param(size)], Block[
+Repeat(4, Block[
+Call(forward, [Var(size)]), 
+Call(right, [90])])]), 
+Procedure(shrinkingSquares, [Param(size)], Block[
+Call(drawSquare, [Var(size)]), 
+If(Var(size), Block[
+Call(shrinkingSquares, [
+Call(difference, [Var(size), 10])])])]), 
+Call(shrinkingSquares, [50])], parserErrors=[Error(token recognition error at: '﻿')], staticErrors=[]}

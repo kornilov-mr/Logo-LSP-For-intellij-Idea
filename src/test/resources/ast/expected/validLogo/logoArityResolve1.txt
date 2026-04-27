@@ -1,0 +1,3 @@
+ProgramNode{statements=[
+Call(forward, [
+Call(sum, [10, 20])])], parserErrors=[], staticErrors=[]}
