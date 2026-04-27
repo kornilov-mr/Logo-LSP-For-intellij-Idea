@@ -2,6 +2,8 @@ package org.example.communication.DTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+@SuppressWarnings("all")
 public class ServerCapabilities extends org.example.communication.LSPAny {
     @JsonProperty("positionEncoding")
     public PositionEncodingKind positionEncoding;

@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class FunctionDeclarationTable {
 
-    public Map<String, FunctionDeclaration> declarationsMap = new HashMap<>();
+    public final Map<String, FunctionDeclaration> declarationsMap = new HashMap<>();
 
     public FunctionDeclaration getFunctionDeclaration(String name){
         if(StandardFunctionDeclaration.getDeclaration().contains(name))
@@ -18,7 +18,5 @@ public class FunctionDeclarationTable {
     public void add(String name, FunctionDeclaration declaration){
         declarationsMap.put(name.toLowerCase(), declaration);
     }
-    public void delete(String name){
-        declarationsMap.remove(name);
-    }
+
 }

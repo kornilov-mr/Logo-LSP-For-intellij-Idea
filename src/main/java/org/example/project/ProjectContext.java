@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class ProjectContext {
 
-    public static final FunctionDeclarationTable standardFunctions = new FunctionDeclarationTable();
     public final static Map<String, FileNode> openFiles = new HashMap<>();
 
     public static void didOpenFile(String url, String textContent){
