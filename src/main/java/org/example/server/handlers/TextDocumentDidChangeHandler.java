@@ -5,6 +5,7 @@ import org.example.communication.NoResponse;
 import org.example.communication.notification.DidChangeTextDocumentParams;
 import org.example.project.FileNode;
 import org.example.project.ProjectContext;
+import org.example.project.ast.ConvertToAST;
 
 import java.util.List;
 
@@ -30,8 +31,9 @@ public class TextDocumentDidChangeHandler extends LSPHandler<DidChangeTextDocume
     protected NoResponse handle(DidChangeTextDocumentParams didChangeTextDocumentParams) {
         List<TextDocumentContentChangeEvent> changes = didChangeTextDocumentParams.contentChanges;
         FileNode currFile = ProjectContext.getFileNode(didChangeTextDocumentParams.textDocument.uri);
-        currFile.applyChanges(changes);
-        currFile.processNode();
+        String newText = currFile.applyChanges(changes);
+        FileNode fileNode = ConvertToAST.convert(newText);
+        ProjectContext.openFiles.put(didChangeTextDocumentParams.textDocument.uri, fileNode);
         return new NoResponse();
     }
 }

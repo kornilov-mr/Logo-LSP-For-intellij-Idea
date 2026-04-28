@@ -8,19 +8,20 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.example.project.FileNode;
+import org.example.project.FunctionDeclarationTable;
 import org.example.project.parser.LogoArityResolverListener;
 import org.example.project.parser.LogoSyntaxErrorCollector;
 import org.example.project.staticAnalyser.StaticAnalyzer;
 
 
 public class ConvertToAST {
-    public static ProgramNode convert(FileNode fileNode) {
-        CharStream input = CharStreams.fromString(fileNode.textContent);
+    public static FileNode convert(String text) {
+        CharStream input = CharStreams.fromString(text);
         LogoLexer lexer = new LogoLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         LogoParser parser = new LogoParser(tokens);
 
-        fileNode.functionDeclarations.clearUserFunctions();
+        FunctionDeclarationTable functionDeclarations = new FunctionDeclarationTable();
 
         LogoSyntaxErrorCollector errorCollector = new LogoSyntaxErrorCollector();
         lexer.removeErrorListeners();
@@ -32,7 +33,7 @@ public class ConvertToAST {
         StaticAnalyzer staticAnalyzer = new StaticAnalyzer();
 
         LogoArityResolverListener listener =
-                new LogoArityResolverListener(fileNode.functionDeclarations);
+                new LogoArityResolverListener(functionDeclarations);
 
         ParseTreeWalker.DEFAULT.walk(listener, tree);
         ProgramNode programNode = listener.getResult();
@@ -40,6 +41,6 @@ public class ConvertToAST {
 
         programNode.staticErrors.addAll(staticAnalyzer.processProgramNode(programNode));
 
-        return programNode;
+        return new FileNode(text, programNode, functionDeclarations);
     }
 }

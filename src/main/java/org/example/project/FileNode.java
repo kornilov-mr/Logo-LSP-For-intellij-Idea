@@ -1,29 +1,27 @@
 package org.example.project;
 
 import org.example.communication.DTO.TextDocumentContentChangeEvent;
-import org.example.project.ast.ConvertToAST;
 import org.example.project.ast.ProgramNode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FileNode {
+    public final String textContent;
+    public final ProgramNode programNode;
+    public final FunctionDeclarationTable functionDeclarations;
 
-    public String textContent;
-
-
-    public ProgramNode programNode;
-    public final FunctionDeclarationTable functionDeclarations = new FunctionDeclarationTable();
-
-    public FileNode(String textContent) {
+    public FileNode(String textContent, ProgramNode programNode, FunctionDeclarationTable functionDeclarations) {
         this.textContent = textContent;
+        this.programNode = programNode;
+        this.functionDeclarations = functionDeclarations;
     }
 
-    public synchronized void applyChanges(List<TextDocumentContentChangeEvent> changes) {
+    public String applyChanges(List<TextDocumentContentChangeEvent> changes) {
+        String newText = textContent;
         for (TextDocumentContentChangeEvent change : changes) {
             if (change.range == null) {
                 // Full document update
-                this.textContent = change.text;
+                return change.text;
             } else {
                 // Incremental update
                 int startLine = change.range.start.line;
@@ -31,7 +29,7 @@ public class FileNode {
                 int endLine = change.range.end.line;
                 int endChar = change.range.end.character;
 
-                String[] contentLines = this.textContent.split("\n", -1);
+                String[] contentLines = newText.split("\n", -1);
 
                 // Build the new content
                 StringBuilder newContent = new StringBuilder();
@@ -62,11 +60,9 @@ public class FileNode {
                 }
 
                 // Update textContent
-                this.textContent = newContent.toString();
+                newText = newContent.toString();
             }
         }
-    }
-    public void processNode() {
-        this.programNode = ConvertToAST.convert(this);
+        return newText;
     }
 }
