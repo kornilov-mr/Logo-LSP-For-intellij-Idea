@@ -8,6 +8,8 @@ import org.example.project.FunctionDeclaration;
 import org.example.project.FunctionDeclarationTable;
 import org.example.project.ast.*;
 
+import org.antlr.v4.runtime.misc.Interval;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -42,7 +44,6 @@ import java.util.List;
 public class LogoArityResolverListener extends LogoBaseListener {
 
     private final FunctionDeclarationTable functionDeclarationTable;
-    private final List<String> sourceLines;
 
     // Scope stack: each frame collects the ASTNodes produced by its statements.
     private final Deque<List<ASTNode>> stack = new ArrayDeque<>();
@@ -59,9 +60,8 @@ public class LogoArityResolverListener extends LogoBaseListener {
     // Tracks nesting depth to detect nested procedure definitions.
     private int procedureDepth = 0;
 
-    public LogoArityResolverListener(FunctionDeclarationTable functionDeclarationTable, List<String> sourceLines) {
+    public LogoArityResolverListener(FunctionDeclarationTable functionDeclarationTable) {
         this.functionDeclarationTable = functionDeclarationTable;
-        this.sourceLines = sourceLines;
     }
 
     public ProgramNode getResult() {
@@ -121,7 +121,7 @@ public class LogoArityResolverListener extends LogoBaseListener {
         }
 
         Range spanFun = rangeOf(ctx.start, ctx.stop);
-        fillProcedureDescription(name, spanFun);
+        fillProcedureDescription(name, ctx);
         int blockStart = parameters.isEmpty() ? ctx.IDENTIFIER().getSymbol().getCharPositionInLine() + name.length()+1: parameters.getLast().getSpan().start.character+1;
         Range spanBlock = new Range(new Position(spanFun.start.line, blockStart), spanFun.end);
         Range nameRange = ctx.IDENTIFIER() != null
@@ -454,23 +454,26 @@ public class LogoArityResolverListener extends LogoBaseListener {
     // Procedure description
     // -------------------------------------------------------------------------
 
-    private void fillProcedureDescription(String name, Range spanFun) {
+    private void fillProcedureDescription(String name, LogoParser.ProcedureDefinitionContext ctx) {
         FunctionDeclaration decl = functionDeclarationTable.getFunctionDeclaration(name);
         if (decl == null || decl.kind != FunctionDeclaration.Kind.USER) return;
-        int startLine = spanFun.start.line;
-        int endLine   = spanFun.end.line;
-        int previewEnd = Math.min(startLine + 4, endLine);
+
+        String source = ctx.start.getInputStream()
+                .getText(new Interval(ctx.start.getStartIndex(), ctx.stop.getStopIndex()))
+                .replace("\r\n", "\n")
+                .replace("\r", "\n");
+
+        String[] lines = source.split("\n", -1);
+        int previewCount = Math.min(5, lines.length);
+        boolean truncated = lines.length > 5;
+
         StringBuilder sb = new StringBuilder();
-        for (int i = startLine; i <= previewEnd && i < sourceLines.size(); i++) {
-            String line = sourceLines.get(i);
-            if (line.endsWith("\r")) line = line.substring(0, line.length() - 1);
-            sb.append(line).append("\n");
+        for (int i = 0; i < previewCount; i++) {
+            if (i > 0) sb.append('\n');
+            sb.append(lines[i]);
         }
-        if (previewEnd < endLine) {
-            sb.append("...");
-        } else {
-            if (!sb.isEmpty()) sb.deleteCharAt(sb.length() - 1); // trim trailing \n
-        }
+        if (truncated) sb.append("\n...");
+
         decl.description = sb.toString();
     }
 

@@ -23,7 +23,7 @@ public class FileIncrementalSyncTests {
         String s = fileNode.textContent;
 
         Assertions.assertEquals(expected, s);
-        Assertions.assertEquals(1, fileNode.contentLines.size());
+        Assertions.assertEquals(0, fileNode.textContent.split("\n", -1).length-1);
     }
 
     @Test
@@ -45,7 +45,7 @@ public class FileIncrementalSyncTests {
 
         String expected = "Line 1\nLine 2\nLine three";
         Assertions.assertEquals(expected, fileNode.textContent);
-        Assertions.assertEquals(3, fileNode.contentLines.size());
+        Assertions.assertEquals(3, fileNode.textContent.split("\n", -1).length);
     }
 
     @Test
@@ -63,7 +63,7 @@ public class FileIncrementalSyncTests {
 
         String expected = "First line\nMODIFIED line\nFourth line";
         Assertions.assertEquals(expected, fileNode.textContent);
-        Assertions.assertEquals(3, fileNode.contentLines.size());
+        Assertions.assertEquals(3, fileNode.textContent.split("\n", -1).length);
     }
 
     @Test
@@ -81,7 +81,7 @@ public class FileIncrementalSyncTests {
 
         String expected = "Line one\nNew line 1\nNew line 2\nLine two";
         Assertions.assertEquals(expected, fileNode.textContent);
-        Assertions.assertEquals(4, fileNode.contentLines.size());
+        Assertions.assertEquals(4, fileNode.textContent.split("\n", -1).length);
     }
 
     @Test
@@ -104,7 +104,7 @@ public class FileIncrementalSyncTests {
 
         String expected = "ABC12DEF";
         Assertions.assertEquals(expected, fileNode.textContent);
-        Assertions.assertEquals(1, fileNode.contentLines.size());
+        Assertions.assertEquals(1, fileNode.textContent.split("\n", -1).length);
     }
 
     @Test
@@ -121,8 +121,9 @@ public class FileIncrementalSyncTests {
 
         String expected = "New first line\nOriginal content";
         Assertions.assertEquals(expected, fileNode.textContent);
-        Assertions.assertEquals(2, fileNode.contentLines.size());
+        Assertions.assertEquals(2, fileNode.textContent.split("\n", -1).length);
     }
+
     @Test
     public void testAddLinesAtEnd() {
         String initial = "Original content";
@@ -137,6 +138,6 @@ public class FileIncrementalSyncTests {
 
         String expected = "Original content\nNew last line";
         Assertions.assertEquals(expected, fileNode.textContent);
-        Assertions.assertEquals(2, fileNode.contentLines.size());
+        Assertions.assertEquals(2, fileNode.textContent.split("\n", -1).length);
     }
 }

@@ -32,7 +32,7 @@ public class ConvertToAST {
         StaticAnalyzer staticAnalyzer = new StaticAnalyzer();
 
         LogoArityResolverListener listener =
-                new LogoArityResolverListener(fileNode.functionDeclarations, fileNode.contentLines);
+                new LogoArityResolverListener(fileNode.functionDeclarations);
 
         ParseTreeWalker.DEFAULT.walk(listener, tree);
         ProgramNode programNode = listener.getResult();
