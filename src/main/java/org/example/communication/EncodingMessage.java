@@ -4,11 +4,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.communication.requests.LSPRequestWrapper;
 
+import java.nio.charset.StandardCharsets;
+
 public class EncodingMessage {
     private static final ObjectMapper objectMapper = new ObjectMapper();
     public static String encodeToJsonRPC(LSPAny message) {
         String json = message.toJson();
-        return String.format("Content-Length:%s\r\n\r\n%s", json.length(), json);
+        return String.format("Content-Length:%s\r\n\r\n%s", json.getBytes(StandardCharsets.UTF_8).length, json);
     }
 
     public static Message decodeFromJsonRPC(String jsonRPC) {
@@ -23,7 +25,7 @@ public class EncodingMessage {
             throw new IllegalArgumentException("Invalid Content-Length header");
         }
         int contentLength = Integer.parseInt(headerParts[1]);
-        if (json.length() != contentLength) {
+        if (json.getBytes(StandardCharsets.UTF_8).length != contentLength) {
             throw new IllegalArgumentException("Content length mismatch");
         }
         try {
