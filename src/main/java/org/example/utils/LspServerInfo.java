@@ -5,6 +5,7 @@ import org.example.communication.DTO.DiagnosticOptions;
 import org.example.communication.DTO.SemanticTokensLegend;
 import org.example.communication.DTO.SemanticTokensOptions;
 import org.example.communication.DTO.ServerCapabilities;
+import org.example.communication.DTO.TextDocumentSyncOptions;
 import org.example.communication.responses.InitializeResult;
 
 public class LspServerInfo {
@@ -18,7 +19,7 @@ public class LspServerInfo {
         ServerCapabilities capabilities = new ServerCapabilities();
         capabilities.hoverProvider = true;
         capabilities.completionProvider = new CompletionOptions(new String[]{":"},new String[]{},true,null);
-        capabilities.textDocumentSync = 2;
+        capabilities.textDocumentSync = new TextDocumentSyncOptions(true, 2);
         capabilities.semanticTokensProvider = new SemanticTokensOptions(SEMANTIC_TOKENS_LEGEND, true,true);
         capabilities.declarationProvider = true;
         capabilities.diagnosticProvider = new DiagnosticOptions(false, false);

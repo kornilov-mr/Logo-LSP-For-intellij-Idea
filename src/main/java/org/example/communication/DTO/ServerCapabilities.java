@@ -9,7 +9,7 @@ public class ServerCapabilities extends org.example.communication.LSPAny {
     public PositionEncodingKind positionEncoding;
 
     @JsonProperty("textDocumentSync")
-    public int textDocumentSync;
+    public Object textDocumentSync;
 
     @JsonProperty("notebookDocumentSync")
     public Object notebookDocumentSync;
@@ -140,9 +140,6 @@ public class ServerCapabilities extends org.example.communication.LSPAny {
 }
 
 class PositionEncodingKind {
-}
-
-class TextDocumentSyncOptions {
 }
 
 class TextDocumentSyncKind {

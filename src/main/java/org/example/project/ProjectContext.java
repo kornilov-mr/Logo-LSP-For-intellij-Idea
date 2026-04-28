@@ -13,6 +13,10 @@ public class ProjectContext {
       fileNode.processNode();
       openFiles.put(url, fileNode);
     }
+    public static void didCloseFile(String url) {
+        openFiles.remove(url);
+    }
+
     public static FileNode getFileNode(String url){
         return openFiles.get(url);
     }

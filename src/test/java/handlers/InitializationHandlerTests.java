@@ -2,6 +2,7 @@ package handlers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.communication.DTO.ServerCapabilities;
+import org.example.communication.DTO.TextDocumentSyncOptions;
 import org.example.communication.requests.InitializeParams;
 import org.example.communication.responses.InitializeResult;
 import org.example.server.handlers.InitializationHandler;
@@ -63,7 +64,7 @@ public class InitializationHandlerTests {
     @Test
     public void testTextDocumentSyncIsIncremental() {
         // textDocumentSync = 2 means incremental sync
-        Assertions.assertEquals(2, result.capabilities.textDocumentSync);
+        Assertions.assertEquals(new TextDocumentSyncOptions(true,2), result.capabilities.textDocumentSync);
     }
 
     @Test

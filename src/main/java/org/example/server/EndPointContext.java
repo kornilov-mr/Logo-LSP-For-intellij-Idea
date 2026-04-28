@@ -4,6 +4,7 @@ import org.example.communication.LSPAny;
 import org.example.communication.NoResponse;
 import org.example.communication.notification.DidChangeConfigurationParams;
 import org.example.communication.notification.DidChangeTextDocumentParams;
+import org.example.communication.notification.DidCloseTextDocumentParams;
 import org.example.communication.notification.DidOpenTextDocumentParams;
 import org.example.communication.notification.InitializedParams;
 import org.example.communication.DTO.CompletionItem;
@@ -35,6 +36,7 @@ public enum EndPointContext {
     initialized("initialized", InitializedParams.class, NoResponse.class, new InitializedHandler()),
     didOpenFile("textDocument/didOpen", DidOpenTextDocumentParams.class, NoResponse.class, new TextDocumentDidOpenHandler()),
     didChangeFile("textDocument/didChange", DidChangeTextDocumentParams.class, NoResponse.class, new TextDocumentDidChangeHandler()),
+    didCloseFile("textDocument/didClose", DidCloseTextDocumentParams.class, NoResponse.class, new TextDocumentDidCloseHandler()),
     shutDown("shutdown", NoParameters.class, NullResult.class, new ShutDownHandler()),
     exit("exit", NoParameters.class, NoResponse.class, new ExitHandler()),
     didChangeConfiguration("workspace/didChangeConfiguration", DidChangeConfigurationParams.class, NoResponse.class, new DidChangeConfigurationHandler()),

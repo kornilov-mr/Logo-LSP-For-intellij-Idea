@@ -11,7 +11,7 @@
 - **Go-to-declaration** - jump to the `make`/parameter definition for a `:variable`, or to the `to` block for a procedure name.
 - **Hover**  - while hovering over a procedure name, displays it's body, or a description and examples or usage for built-in procedures.
 
-![usage example gif.gif](usage%20example%20gif.gif)
+![logo.gif](logo.gif)![usage example gif.gif](usage%20example%20gif.gif)
 ## Build & run
 
 Requires JDK 17.

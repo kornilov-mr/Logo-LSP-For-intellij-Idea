@@ -30,9 +30,6 @@ public class ProgramNode extends ASTNode {
                     node.getSpan().start.character <= position.character && node.getSpan().end.character >= position.character) {
                     nodesInsideTheSpan.add(new Pair<>(new Pair<>(0, node.getSpan().end.character - node.getSpan().start.character), node));
             }
-            Boolean s = node.getSpan().start.line == position.line && node.getSpan().start.character <= position.character;
-            Boolean e = node.getSpan().end.line == position.line && node.getSpan().end.character >= position.character;
-            Boolean l =node.getSpan().start.line < position.line && node.getSpan().end.line > position.line;
             if((node.getSpan().start.line == position.line && node.getSpan().start.character <= position.character)||
                     (node.getSpan().end.line == position.line && node.getSpan().end.character >= position.character)||
                     (node.getSpan().start.line < position.line && node.getSpan().end.line > position.line)) {
