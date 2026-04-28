@@ -1,4 +1,4 @@
 ProgramNode{statements=[
 Procedure(square, [Param(x)], Block[
 Call(output, [
-Call(product, [Var(x), Var(x)])])])], parserErrors=[Error(extraneous input '<EOF>' expecting {'to', 'end', VARIABLE, QUOTED_WORD, IDENTIFIER, NUMBER, '[', INFIX_OP, '('})], staticErrors=[]}
+Call(product, [Var(x), Var(x)])])])], parserErrors=[Error(extraneous input '<EOF>' expecting {TO, END, VARIABLE, QUOTED_WORD, IDENTIFIER, NUMBER, '[', INFIX_OP, '('})], staticErrors=[]}
