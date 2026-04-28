@@ -36,8 +36,13 @@ public class ProgramNode extends ASTNode {
                 bestChars = chars;
             }
         }
-
-        return best != null ? best : nodes.getLast();
+        if (best == null)
+            if (nodes.isEmpty()) {
+                return this;
+            } else {
+                return nodes.getLast();
+            }
+        return best;
     }
 
     private static boolean containsPosition(Range span, Position pos) {
@@ -48,22 +53,22 @@ public class ProgramNode extends ASTNode {
         return afterStart && beforeEnd;
     }
 
-@Override
-public Range getSpan() {
-    return null;
-}
+    @Override
+    public Range getSpan() {
+        return null;
+    }
 
-@Override
-public List<ASTNode> getChildren() {
-    return statements;
-}
+    @Override
+    public List<ASTNode> getChildren() {
+        return statements;
+    }
 
-@Override
-public String toString() {
-    return "ProgramNode{" +
-            "statements=" + statements +
-            ", parserErrors=" + parserErrors +
-            ", staticErrors=" + staticErrors +
-            '}';
-}
+    @Override
+    public String toString() {
+        return "ProgramNode{" +
+                "statements=" + statements +
+                ", parserErrors=" + parserErrors +
+                ", staticErrors=" + staticErrors +
+                '}';
+    }
 }
