@@ -115,3 +115,23 @@ Walks the finished AST and attaches a `LocalScope` to every node. Each scope rec
 ### Step 4 — Static analysis (`StaticAnalyzer`)
 
 A second AST walk checks every `CallNode`, `FunctionRef`, and `VariableRefNode` against the `LocalScope` attached to it. Unresolved names produce `ErrorNode` entries in `ProgramNode.staticErrors`.
+
+### Logo example
+```
+to drawSquare :size
+  repeat 4 [
+    forward :size
+    right 90
+  ]
+END
+to shrinkingSquares :size
+  drawSquare :size
+  if :size [
+    shrinkingSquares difference :size 10 + 30
+  ]
+end
+make "size 100
+make "size 100 + 300
+shrinkingSquares :size
+forward :size
+```
