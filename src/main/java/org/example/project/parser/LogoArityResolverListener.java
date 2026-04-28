@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * The {@code LogoArityResolverListener} class is responsible for analyzing the syntax tree of a
  * Logo program and resolving function and procedure calls based on their arity and context. It extends
- * the {@code LogoBaseListener} class to provide custom handling of grammar rules during the parsing process.
+ * the {@code gen.LogoBaseListener} class to provide custom handling of grammar rules during the parsing process.
  * <p>
  * This class maintains state during parsing, including a stack for intermediate computations and tables
  * for tracking function declarations and resolving their arguments. It also handles error detection for

@@ -90,7 +90,7 @@ expression
     : atom+
     ;
 ```
-The source text is fed to the generated `LogoLexer` and `LogoParser`. A `LogoSyntaxErrorCollector` attached to both collects any lex/parse errors. The result is a concrete parse tree where every expression is a flat bag of atoms.
+The source text is fed to the generated `gen.LogoLexer` and `gen.LogoParser`. A `LogoSyntaxErrorCollector` attached to both collects any lex/parse errors. The result is a concrete parse tree where every expression is a flat bag of atoms.
 
 ### Step 2 — Arity resolution (`LogoArityResolverListener`)
 
